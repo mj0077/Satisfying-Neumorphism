@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Neumorphism CSS</title>
+</head>
+
+<body>
+    <h1>NEUMORPHISM</h1>
+    <div class="container">
+        <div class="card card1">
+            <h1>01</h1>
+            <h2>hover me</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus aliquam commodi exercitationem, est facere explicabo dicta ipsam magnam nemo earum.</p>
+        </div>
+        <div class="card card2">
+            <h1>02</h1>
+            <h2>type two</h2>
+            <p>Voluptatibus aliquam commodi exercitationem, est facere explicabo dicta ipsam magnam nemo earum. Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </div>
+        <a class="card card3">
+            <h1>03</h1>
+            <h2>type three</h2>
+            <p>Saepe incidunt itaque et praesentium eum perferendis optio tempora culpa exercitationem laboriosam ad, dolore sint deleniti fugit <strong>Did you try clicking me?!</strong></p>
+        </a>
+        <a class="card card4">
+            <h1>04</h1>
+            <h2>type four</h2>
+            <p>Saepe incidunt itaque et praesentium eum perferendis optio tempora culpa exercitationem laboriosam ad, dolore sint deleniti fugit <strong>I'm the previous one only but enhanced!</strong></p>
+        </a>
+    </div>
+    <div class="container2">
+        <a id="ripple">click me</a>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $("#ripple").on({
+            click: function() {
+                var span = $("<span></span>");
+                $(".container2").append(span);
+                $(".container2 span:last-child").css("animation", "ripple 2.5s linear");
+                setTimeout(() => {
+                    $(".container2 span:nth-child(2)").remove();
+                }, 2450);
+            }
+        })
+
+        $(".card.card4").on({
+            mouseenter: function() {
+                $(this).css("animation", "card4 .25s ease-in-out forwards");
+            },
+            mouseleave: function() {
+                $(this).css("animation", "card4rev .25s ease-in-out forwards");
+            },
+            mousedown: function() {
+                $(this).css("animation", "card4click .125s ease-in-out forwards");
+            },
+            mouseup: function() {
+                $(this).css("animation", "card4mouseUp .125s ease-in-out forwards");
+            }
+        });
+
+        $(".card.card3").on({
+            mouseenter: function() {
+                $(this).css("animation", "card3 .25s ease-in-out forwards");
+            },
+            mouseleave: function() {
+                $(this).css("animation", "card3rev .25s ease-in-out forwards");
+            },
+            mousedown: function() {
+                $(this).css("animation", "card3click .125s ease-in-out forwards");
+            },
+            mouseup: function() {
+                $(this).css("animation", "card3mouseUp .125s ease-in-out forwards");
+            }
+        });
+
+        $(".card.card2").on({
+            mouseenter: function() {
+                $(this).css("animation", "card2 .25s ease-in-out forwards");
+            },
+            mouseleave: function() {
+                $(this).css("animation", "card .25s ease-in-out forwards");
+            }
+        });
+
+        $(".card.card1").mouseenter(function() {
+            $(this).css("animation", "card .25s ease-in-out forwards");
+        });
+        $(".card.card1").mouseleave(function() {
+            $(this).css("animation", "card2 .25s ease-in-out forwards");
+        });
+
+    });
+</script>
+
+</html>
