@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Neumorphism CSS</title>
 </head>
 
@@ -33,24 +34,53 @@
             <p>Saepe incidunt itaque et praesentium eum perferendis optio tempora culpa exercitationem laboriosam ad, dolore sint deleniti fugit <strong>I'm the previous one only but enhanced!</strong></p>
         </a>
     </div>
+
+    <h1>buttons</h1>
     <div class="container2">
         <a id="ripple">click me</a>
     </div>
 
+    <div class="ring_main">
+        <div class="outer_ring">
+            <div class="inner_ring">
+                <span></span>
+                <span></span>
+                <div class="btn active"><i class="fa">&#xf011;</i>
+                </div>
+            </div>
+        </div>
+        <div class="outer_ring outer_ring2">
+            <div class="inner_ring inner_ring2">
+                <span></span>
+                <span></span>
+                <div class="btn active"><i class="fa">&#xf011;</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="sun"></div>
+        <div class="ring">
+            <div class="shadow"></div>
+            <div class="in_ring"></div>
+        </div>
+    </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
-        $("#ripple").on({
-            click: function() {
-                var span = $("<span></span>");
-                $(".container2").append(span);
-                $(".container2 span:last-child").css("animation", "ripple 2.5s linear");
-                setTimeout(() => {
-                    $(".container2 span:nth-child(2)").remove();
-                }, 2450);
-            }
+        $(".ring_main .outer_ring2 .inner_ring2 div.btn").click(() => {
+            $(".ring_main .outer_ring2 div.btn").toggleClass("active");
+            $(".ring_main .outer_ring2").toggleClass("off");
+            $(".ring_main .inner_ring2").toggleClass("off");
         })
+        $(".ring_main .outer_ring:first-child div.btn").click(() => {
+            $(".ring_main .outer_ring:first-child div.btn").toggleClass("active");
+            $(".ring_main .outer_ring:first-child").toggleClass("off");
+            $(".ring_main .outer_ring:first-child .inner_ring").toggleClass("off");
+        })
+
 
         $(".card.card4").on({
             mouseenter: function() {
@@ -98,6 +128,16 @@
             $(this).css("animation", "card2 .25s ease-in-out forwards");
         });
 
+        $("#ripple").on({
+            click: function() {
+                var span = $("<span></span>");
+                $(".container2").append(span);
+                $(".container2 span:last-child").css("animation", "ripple 2.5s linear");
+                setTimeout(() => {
+                    $(".container2 span:nth-child(2)").remove();
+                }, 2450);
+            }
+        })
     });
 </script>
 
